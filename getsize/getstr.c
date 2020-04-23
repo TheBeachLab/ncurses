@@ -3,14 +3,17 @@
 
 int main()
 {
-	char mesg[]="Just a string";
+	char mesg[]="Enter a string: ";
+	char str[80];
 	int row,col;
 
 	initscr();
 	getmaxyx(stdscr,row,col);
 	mvprintw(row/2,(col-strlen(mesg))/2,"%s",mesg);
-	mvprintw(row-1,0,"This screen has %d rows and %d columns\n",row,col);
-	refresh();
+
+	getstr(str);
+	mvprintw(LINES-2,0,"You entered: %s",str);
+	//refresh();
 	getch();
 	endwin();
 
